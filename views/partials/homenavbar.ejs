@@ -1,0 +1,23 @@
+<nav class="navbar  navbar-expand-lg  navbar-dark bg-primary ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">        
+            <i class="fab fa-angellist fa-x2"></i> BlogPress
+        </a>
+    
+        <ul class="navbar-nav me-auto " class="inline">
+            <li class="nav-item">
+                <a href="/" class="nav-link" >Home</a>
+            </li>
+
+            <% categories.forEach( categorie => { %>
+                <li class="nav-item">
+                    <a href="/category/<%= categorie.slug %>" class="nav-link" ><%= categorie.title %></a>
+                </li>
+            <% }) %>
+            
+        </ul>
+
+
+    </div>
+
+</nav>
