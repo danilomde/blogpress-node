@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Category = require("./Category");
 const slugify = require('slugify');
+const adminAuth = require("../middlewares/adminAuth");
 
-router.get("/admin/categories", (request, response) => {
+router.get("/admin/categories",adminAuth, (request, response) => {
     
     Category.findAll().then( categories => {
         
@@ -13,13 +14,13 @@ router.get("/admin/categories", (request, response) => {
 
 
 
-router.get("/admin/categories/new", (request, response) => {
+router.get("/admin/categories/new",adminAuth, (request, response) => {
     response.render('admin/categories/new');
 });
 
 
 
-router.get("/admin/categories/edit/:id", (request, response) => {
+router.get("/admin/categories/edit/:id",adminAuth, (request, response) => {
     
     var id = request.params.id;
 
@@ -44,7 +45,7 @@ router.get("/admin/categories/edit/:id", (request, response) => {
 
 });
 
-router.post('/categories/save', (request, response) => {
+router.post('/categories/save', adminAuth,(request, response) => {
     var title = request.body.title;
     
     if(title != undefined){
@@ -61,7 +62,7 @@ router.post('/categories/save', (request, response) => {
     }
 });
 
-router.post('/categories/update', (request, response) => {
+router.post('/categories/update', adminAuth,(request, response) => {
     var id = request.body.id;
     var title = request.body.title;
     
@@ -85,7 +86,7 @@ router.post('/categories/update', (request, response) => {
 });
 
 
-router.post('/categories/delete', (request, response) => {
+router.post('/categories/delete',adminAuth, (request, response) => {
     var id = request.body.id;
     
     if( id != undefined ){

@@ -9,12 +9,23 @@
                 <a href="/" class="nav-link" >Home</a>
             </li>
 
+            <!-- <li class="nav-item">
+                <a href="/users/create" class="nav-link" >Cadastro</a>
+            </li> -->
+
             <% categories.forEach( categorie => { %>
                 <li class="nav-item">
                     <a href="/category/<%= categorie.slug %>" class="nav-link" ><%= categorie.title %></a>
                 </li>
             <% }) %>
             
+        </ul>
+
+        <ul class="navbar-nav md-auto " class="inline">
+           
+            <li class="nav-item">
+                <a href="/login" class="nav-link" >Login</a>
+            </li>
         </ul>
 
 
