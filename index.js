@@ -88,7 +88,7 @@ app.get('/:slug', (request, response) => {
         if (article != undefined){
             Category.findAll().then( categories => {
                 
-                response.render('index', {article: article, categories: categories});
+                response.render('index', {articles: article, categories: categories});
                 
             })
             
